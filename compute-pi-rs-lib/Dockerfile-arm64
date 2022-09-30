@@ -1,0 +1,16 @@
+# Build image for building with Rust on Amazon Linux 2, suitable for custom AWS Lambda runtimes.
+FROM public.ecr.aws/amazonlinux/amazonlinux:2.0.20220912.1-arm64v8
+
+ENV RUSTUP_HOME=/usr/local/rustup \
+    CARGO_HOME=/usr/local/cargo \
+    PATH=/usr/local/cargo/bin:$PATH \
+    RUST_VERSION=1.63.0
+
+RUN yum install -y gcc gcc-c++ openssl-devel; \
+    curl https://sh.rustup.rs -sSf | sh -s -- --no-modify-path --profile minimal --default-toolchain $RUST_VERSION -y; \
+    chmod -R a+w $RUSTUP_HOME $CARGO_HOME; \
+    rustup --version; \
+    cargo --version; \
+    rustc --version;
+
+WORKDIR /target

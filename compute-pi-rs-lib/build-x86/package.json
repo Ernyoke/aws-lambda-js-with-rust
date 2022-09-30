@@ -1,0 +1,11 @@
+{
+  "name": "compute-pi-rs-lib",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.node",
+  "scripts": {
+    "test": "cargo test"
+  },
+  "author": "Ervin Szilagyi",
+  "license": "ISC"
+}
