@@ -1,12 +1,12 @@
 locals {
-  function_name = "compute-pi-js-with-rs-x86"
+  function_name = "compute-pi-js-with-rs-arm64"
 }
 
 data "archive_file" "lambda_my_function" {
   type             = "zip"
   source_dir       = "${path.module}/../aws-lambda-compute-pi-js-with-rs"
   output_file_mode = "0666"
-  output_path      = "${path.module}/compute-pi-js-with-rs-x86.zip"
+  output_path      = "${path.module}/compute-pi-js-with-rs-arm64.zip"
 }
 
 resource "aws_lambda_function" "lambda" {
@@ -19,6 +19,8 @@ resource "aws_lambda_function" "lambda" {
 
   runtime = "nodejs16.x"
   timeout = 300
+
+  architectures = ["arm64"]
 
   tracing_config {
     mode = "Active"

@@ -14,7 +14,7 @@
     "@aws-lambda-powertools/logger": "^1.2.1",
     "@aws-lambda-powertools/metrics": "^1.2.1",
     "@aws-lambda-powertools/tracer": "^1.2.1",
-    "compute-pi-rs-lib": "file:../compute-pi-rs-lib/build-x86/compute-pi-rs-lib-0.1.0.tgz"
+    "compute-pi-rs-lib": "file:../compute-pi-rs-lib/build-arm64/compute-pi-rs-lib-0.1.0.tgz"
   },
   "author": "Ervin Szilagyi",
   "license": "ISC"
